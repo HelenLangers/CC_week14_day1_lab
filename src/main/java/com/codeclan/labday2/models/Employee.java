@@ -1,10 +1,26 @@
 package com.codeclan.labday2.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="employees")
 public class Employee {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY);
+    @Column(name="id")
+    private Long id;
+
+    @Column(name="name")
     private String name;
+
+    @Column(name="age")
     private int age;
+
+    @Column(name="employee_number")
     private int employeeNumber;
+
+    @Column(name="email")
     private String email;
 
     public Employee(String name, int age, int employeeNumber, String email){
@@ -12,6 +28,10 @@ public class Employee {
         this.age = age;
         this.employeeNumber = employeeNumber;
         this.email = email;
+    }
+
+    public Employee(){
+
     }
 
     public String getName() {
@@ -44,5 +64,13 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
